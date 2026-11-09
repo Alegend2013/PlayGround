@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101d22" />
+  <title>EMBERFALL — The Last Light</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game" aria-label="Emberfall game">
+    <canvas id="world"></canvas>
+    <div class="vignette"></div>
+    <div id="hud" class="hidden">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark">✦</span><div><b>EMBERFALL</b><small>THE LAST LIGHT</small></div></div>
+        <div class="region"><span class="region-dot"></span><span id="regionName">THE HOLLOWWIND REACH</span><small>— THE SUNDERED COAST</small></div>
+        <button id="pauseBtn" class="icon-btn" aria-label="Pause">Ⅱ</button>
+      </header>
+      <section class="quest-card">
+        <div class="eyebrow"><span class="tiny-diamond">◆</span> MAIN STORY</div>
+        <h2 id="questTitle">A LIGHT IN THE DARK</h2>
+        <p id="questText">Find the three lost memories. The beacon must be rekindled.</p>
+        <div class="quest-progress"><div id="questProgress"></div></div>
+        <div class="quest-foot"><span id="shardCount">MEMORIES <b>0 / 3</b></span><span id="distance">—</span></div>
+      </section>
+      <div class="compass"><div class="compass-line"></div><span class="compass-n">N</span><span class="compass-marker" id="compassMarker">◆</span><span class="compass-label" id="compassLabel">BEACON</span></div>
+      <div class="player-panel"><div class="level-badge">07</div><div class="vitals"><div class="vital-label"><span>VALE</span><span id="healthText">100 / 100</span></div><div class="bar hp"><i id="healthBar"></i></div><div class="bar stamina"><i id="staminaBar"></i></div></div></div>
+      <div class="interaction hidden" id="interaction"><span class="keycap">E</span><span id="interactionText">SPEAK</span></div>
+      <div class="toast hidden" id="toast"></div>
+      <div class="center-notice hidden" id="centerNotice"></div>
+      <div class="controls-hint"><span>WASD <i>MOVE</i></span><span>SHIFT <i>SPRINT</i></span><span>SPACE <i>DODGE</i></span><span>CLICK <i>STRIKE</i></span><span>E <i>INTERACT</i></span></div>
+      <div class="target-ui hidden" id="targetUI"><span class="target-name" id="targetName">DROWNED WARDEN</span><div class="bar enemy-hp"><i id="enemyBar"></i></div></div>
+      <div class="mobile-controls" id="mobileControls"><div class="touch-stick" id="stick"><span></span></div><button id="touchAttack">✦</button><button id="touchDodge">↗</button><button id="touchInteract">E</button></div>
+    </div>
+    <div id="titleScreen" class="screen">
+      <div class="title-backdrop"></div>
+      <div class="title-content">
+        <div class="title-kicker"><span></span> A TALE FROM THE SUNDERED COAST <span></span></div>
+        <h1>EMBER<span>FALL</span></h1>
+        <div class="title-rule"><i>✦</i></div>
+        <p class="title-sub">THE LAST LIGHT</p>
+        <p class="title-copy">The sun has not risen in seven years.<br>Tonight, the old beacon answers.</p>
+        <button id="beginBtn" class="primary-btn"><span>BEGIN YOUR JOURNEY</span><b>→</b></button>
+        <div class="title-bottom">AN OPEN-WORLD ADVENTURE <span>•</span> CHAPTER I: HOLLOWWIND</div>
+      </div>
+      <div class="title-side-note">NORTH COAST · 7 YEARS AFTER THE FALL</div>
+    </div>
+    <div id="dialogue" class="dialogue hidden">
+      <div class="dialogue-rule"></div><div class="speaker">THE WAYFARER</div><p id="dialogueText">The wind remembers what we forget.</p><button id="dialogueNext">CONTINUE <span>↵</span></button>
+    </div>
+    <div id="pauseScreen" class="screen hidden">
+      <div class="pause-panel"><div class="eyebrow">EMBERFALL · CHAPTER I</div><h2>TAKE A BREATH</h2><p>The coast will wait for you.</p><button id="resumeBtn" class="primary-btn"><span>RETURN TO THE COAST</span><b>→</b></button><div class="pause-controls">WASD move&nbsp; · &nbsp;Mouse look&nbsp; · &nbsp;Click strike&nbsp; · &nbsp;Space dodge</div></div>
+    </div>
+    <div id="endingScreen" class="screen hidden"><div class="pause-panel"><div class="eyebrow">CHAPTER I COMPLETE</div><h2>THE LIGHT RETURNS</h2><p>For the first time in seven years, dawn touches the coast.<br>Your story is only beginning.</p><button id="againBtn" class="primary-btn"><span>WANDER THE REKINDLED COAST</span><b>→</b></button></div></div>
+    <div id="loading" class="loading"><div class="loading-mark">✦</div><span>THE COAST IS WAKING</span></div>
+  </div>
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js"}}</script>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
