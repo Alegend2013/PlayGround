@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#17110d" />
+  <title>Dust &amp; Honor — A Frontier Story</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2317110d'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-size='48' fill='%23d2a35e'%3ED%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Rye&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game"></div>
+  <div class="film-grain"></div>
+  <div class="vignette"></div>
+
+  <main id="title-screen" class="screen">
+    <div class="title-copy">
+      <div class="eyebrow"><span></span> A FRONTIER STORY · 1899</div>
+      <h1>DUST <i>&amp;</i><br><span>HONOR</span></h1>
+      <p class="title-tagline">THE WEST DOESN'T FORGIVE.<br><b>IT REMEMBERS.</b></p>
+      <div class="title-rule"></div>
+      <p class="title-description">A story of one last ride, and the men who won't let it end.</p>
+      <button id="start-button" class="primary-button">RIDE INTO THE WEST <span>→</span></button>
+      <div class="title-foot">AN ORIGINAL WESTERN ADVENTURE</div>
+    </div>
+    <div class="title-bottom"><span>NEW AUSTIN TERRITORY</span><span>32° 14′ N &nbsp; 104° 08′ W</span></div>
+  </main>
+
+  <section id="game-ui" class="hidden">
+    <header class="topbar">
+      <div class="brand-mark"><span class="brand-star">✳</span><div>DUST <b>&amp;</b> HONOR<small>NEW AUSTIN · 1899</small></div></div>
+      <div class="chapter"><small>CHAPTER I</small><span>A DEBT IN THE DUST</span></div>
+      <button id="map-button" class="map-button" aria-label="Toggle map">MAP <span>M</span></button>
+    </header>
+    <aside class="mission-card">
+      <div class="mission-label"><span class="mission-dot"></span> CURRENT OBJECTIVE</div>
+      <h2 id="objective-title">THE OLD TRAIL</h2>
+      <p id="objective-text">Ride into Coyote Creek and speak with Sheriff Miller.</p>
+      <div class="objective-distance"><span class="target-icon">⌖</span><span id="distance-text">WAYPOINT · 240 M</span></div>
+    </aside>
+    <div class="status-panel">
+      <div class="health-row"><span>VITALITY</span><div class="health-track"><i id="health-fill"></i></div><b id="health-number">100</b></div>
+      <div class="ammo-row"><div class="ammo-icon">✦</div><div><b id="ammo-count">6</b><span> / 24</span><small> CATTLEMAN REVOLVER</small></div></div>
+    </div>
+    <div class="reticle"><i></i><i></i><i></i><i></i><b></b></div>
+    <div id="interaction-prompt" class="interaction-prompt hidden"><span>E</span><b>INTERACT</b></div>
+    <div class="toast" id="toast"></div>
+    <div id="map-panel" class="map-panel hidden">
+      <div class="map-heading"><span>NEW AUSTIN TERRITORY</span><button id="close-map">×</button></div>
+      <div class="map-art"><div class="map-river"></div><span class="map-town">COYOTE CREEK</span><span class="map-you">✦</span><span class="map-target">⌖</span><span class="map-mountain">▲</span><span class="map-note">DRY CREEK<br>TRAIL</span></div>
+      <div class="map-legend"><span>✦ YOU</span><span>⌖ OBJECTIVE</span></div>
+    </div>
+    <div class="controls-hint"><kbd>W A S D</kbd> MOVE <i></i><kbd>SHIFT</kbd> SPRINT <i></i><kbd>R</kbd> RELOAD</div>
+    <div id="damage-flash"></div>
+    <div id="chapter-card" class="chapter-card hidden"><small>CHAPTER I</small><h2>A DEBT IN<br>THE DUST</h2><p>COYOTE CREEK · NEW AUSTIN</p></div>
+    <div id="pause-overlay" class="pause-overlay hidden"><div><small>THE FRONTIER CAN WAIT</small><h2>PAUSED</h2><button id="resume-button" class="primary-button">BACK TO THE TRAIL <span>→</span></button><p>WASD MOVE · MOUSE LOOK · CLICK FIRE</p></div></div>
+    <div id="mobile-controls" class="mobile-controls">
+      <div id="joystick" class="joystick"><div class="joy-knob"></div></div>
+      <button id="mobile-fire" class="mobile-fire">FIRE</button>
+      <button id="mobile-interact" class="mobile-interact">E</button>
+    </div>
+  </section>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
